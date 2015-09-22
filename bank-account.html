@@ -5,25 +5,80 @@
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-1.11.3.js"></script>
     <script src="js/scripts.js"></script>
-    <title>Factorial</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <title>Bank of Epicodus</title>
   </head>
   <body>
     <div class="container">
-      <h1>Desscribing Title</h1>
+      <h1>Welcome to the Bank of Epicodus</h1>
 
-      <form id="good name">
+      <div id="accountSignup" class="form-inline">
         <div class="form-group">
-          <label for="good label">Form Stuff</label>
-          <input id="good id" type="text" required=""><br>
-
+          <label for="username">Enter a username:</label>
+          <input id="username" type="text" placeholder="username" required>
         </div>
-
-        <button type="submit" class="btn">Find out!</button>
-      </form>
-
-      <div id="result">
-        <p>Factorial of <span class="number"></span> is <span class="final"></span>.</p>
+        &nbsp;
+        <button type="submit" class="btn" id="signupSubmit">Enter!</button>
       </div>
+
+      <hr>
+
+      <!-- Trigger the modal with a button -->
+      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Deposit/Withdraw</button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Deposit/Withdraw</h4>
+            </div>
+            <div class="modal-body">
+
+              <!-- Submission form -->
+              <div id="accountAction">
+                <div class="form-group">
+                  <label for="actionDropdown">Select an action:</label>
+                  <select id="actionDropdown" name="actionDropdown" class="form-control">
+                    <option value="deposit">Deposit</option>
+                    <option value="withdraw">Withdraw</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="amount">Amount:</label>
+                  <input id="amount" type="number" class="form-control" placeholder="Ex. 100">
+                </div>
+                <button type="submit" class="btn btn-info" id ="actionSubmit"> Enter!</button>
+              </div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <table class="table table-striped" id="accountHistory">
+            <thead>
+              <tr>
+                <th>Action</th>
+                <th>Amount</th>
+                <th>Balance</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
     </div>
   </body>
 </html>
