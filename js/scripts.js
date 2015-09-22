@@ -79,6 +79,9 @@ $(document).ready(function() {
     var newBankAccount = new BankAccount(inputtedUsername, 0, 'checking');
     bankAccount = newBankAccount;
     addNewLogToTable(bankAccount);
+    $('div#accountSignup').hide();
+    $('span#table-title').text(inputtedUsername + "'s Account History");
+    $('table#accountHistory').show();
   });
 
   $('button#actionSubmit').click(function() {
@@ -96,7 +99,6 @@ $(document).ready(function() {
         alert(bae.name + ": " + bae.message);
       }
     }
-
-
+    $('div#myModal').modal('hide');
   });
 });
