@@ -38,18 +38,6 @@ BankAccount.prototype.withdraw = function(myAmount) {
     throw new BankAccountException('Not enough funds! Please try again.');
   }
 }
-// BankAccount.prototype.withdraw = function(myAmount) {
-//   try {
-//     if (myAmount <= this.balance) {
-//       this.balance -= myAmount;
-//       this.accountHistory.push(new Log('withdraw', myAmount, this.balance));
-//     } else {
-//       throw new BankAccountException('Not enough funds! Please try again.');
-//     }
-//   } catch (bae) {
-//     alert(bae.name + ": " + bae.message);
-//   }
-// }
 
 /* New log display helper function */
 function addNewLogToTable(currBankAccount) {
@@ -100,5 +88,6 @@ $(document).ready(function() {
       }
     }
     $('div#myModal').modal('hide');
+    $('input#amount').val('');
   });
 });
