@@ -13,17 +13,19 @@ function BankAccount(username, balance, accountType) {
   this.username = username;
   this.balance = balance;
   this.accountType = accountType;
+  this.accountHistory = [{'action': 'open account', 'amount': balance, 'balance': this.balance}];
 }
 
 /* Deposit */
-BankAccount.prototype.deposit = function(amount) {
-  this.balance += amount;
+BankAccount.prototype.deposit = function(myAmount) {
+  this.balance += myAmount;
+  this.accountHistory.push({'action': 'deposit', 'amount': myAmount, 'balance': this.balance});
 }
 
 /* Withdraw */
-BankAccount.prototype.withdraw = function(amount) {
-  if (amount <= this.balance) {
-    this.balance -= amount;
+BankAccount.prototype.withdraw = function(myAmount) {
+  if (myAmount <= this.balance) {
+    this.balance -= myAmount;
   } else {
     throw new BankAccountException('Not enough funds! Please try again.');
   }
