@@ -26,6 +26,7 @@ BankAccount.prototype.deposit = function(myAmount) {
 BankAccount.prototype.withdraw = function(myAmount) {
   if (myAmount <= this.balance) {
     this.balance -= myAmount;
+    this.accountHistory.push({'action': 'withdraw', 'amount': myAmount, 'balance': this.balance});
   } else {
     throw new BankAccountException('Not enough funds! Please try again.');
   }

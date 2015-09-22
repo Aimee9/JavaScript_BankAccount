@@ -13,7 +13,9 @@ describe('deposit', function() {
   it("will add an amount of money to a user's account", function() {
     var testAccount = new BankAccount("epicodus", 200, "checking");
     testAccount.deposit(100);
+    var expectedLog = {'action': 'deposit', 'amount': 100, 'balance': 300};
     expect(testAccount.balance).to.equal(300);
+    expect(testAccount.accountHistory[1]).to.eql(expectedLog);
   });
 });
 
@@ -21,7 +23,9 @@ describe('withdraw', function() {
   it("will subtract an amount of money to a user's account", function() {
     var testAccount = new BankAccount("epicodus", 200, "checking");
     testAccount.withdraw(100);
+    var expectedLog = {'action': 'withdraw', 'amount': 100, 'balance': 100};
     expect(testAccount.balance).to.equal(100);
+    expect(testAccount.accountHistory[1]).to.eql(expectedLog);
   });
 
   it("will not subtract an amount of money to a user's account if amount is greater than existing funds", function() {
