@@ -1,9 +1,11 @@
 describe('BankAccount', function() {
   it("will create a bank account object", function() {
     var testAccount = new BankAccount("epicodus", 200, "checking");
+    var expectedHistory = [{'action': 'open account', 'amount': 200, 'balance': 200}];
     expect(testAccount.username).to.equal("epicodus");
     expect(testAccount.balance).to.equal(200);
     expect(testAccount.accountType).to.equal("checking");
+    expect(testAccount.accountHistory).to.eql(expectedHistory);
   });
 });
 
